@@ -1,0 +1,42 @@
+Modèles :
+
+- Département:
+  - nom = txt
+  - nbPers = integer
+
+- Sous-réseaux:
+  - addrIP = txt
+  - masque = txt
+
+- Plage d'addresse:
+  - plage = txt
+  - sousRes = txt
+  - depart = txt
+  - addrdiff = txt
+  - nbHote = Integer
+Vue :
+ 
+- calcul sous réseaux:
+  - champs d'entrée : Adresse IP (txt)
+  - result : calc sous réseau
+- gestion des départements:
+  - champs d'entrée : Nom, nb personne
+  - result : créer, afficher, modifier et suppr département
+   (adresse réseau, adresse de diffusion, nb d'hotes, ...)
+- affichege visualisations:
+  - Plotly ou Matplotlib(graph)
+- planification automatiques:
+  - result : user peut planif auo les sous-réseaux
+  (nb personnes, capacité max par sous-réseau)
+
+Templates :
+
+- affichage des informations
+- des formulaires
+
+
+importations: 
+- import ipaddress
+
+requirements:
+- 

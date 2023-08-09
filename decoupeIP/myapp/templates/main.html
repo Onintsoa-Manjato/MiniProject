@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    {% block title %}
+    My app - main
+    {% endblock %}
+{% endblock %}
+
+{% block content %}
+    <h1>Hello World!</h1>
+    <p>Welcome to my Django IP address slicing!</p>
+{% endblock %}
