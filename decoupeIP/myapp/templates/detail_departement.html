@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+
+<div class="container">
+  {% block content %}
+    <div class="main">
+        
+        <!-- Specify fields to be displayed -->
+        {{ data.nomDepart }}<br/>
+        {{ data.nbPers }}<br/>
+    
+    </div>
+  {% endblock %}
+</div>
+</body>
+</html>

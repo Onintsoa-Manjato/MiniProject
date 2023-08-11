@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+
+<div class="container">
+  {% block content %}
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="POST">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+    
+            <!-- form as paragraph -->
+            {{ form.as_p }}
+    
+            <input type="submit" value="Modifier">
+        </form>
+    
+    </div>
+  {% endblock %}
+</div>
+</body>
+</html>

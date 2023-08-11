@@ -1,15 +1,11 @@
 from django.contrib import admin
-from .models import Departement, SousReseau, PlageAdress
+from .models import Departement, SousReseau
 
 class DepartementAdmin(admin.ModelAdmin):
-    list_display = ("nomDepart", "nbPers")
+    list_display = ("id", "nomDepart", "nbPers")
 
 class SousReseauAdmin(admin.ModelAdmin):
     list_display = ("addressIP", "masque")
 
-class PlageAdressAdmin(admin.ModelAdmin):
-    list_display = ("adresseDiffus", "nbHote")
-
 admin.site.register(Departement, DepartementAdmin)
 admin.site.register(SousReseau, SousReseauAdmin)
-admin.site.register(PlageAdress, PlageAdressAdmin)

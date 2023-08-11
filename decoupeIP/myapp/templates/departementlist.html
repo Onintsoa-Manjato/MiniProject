@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+
+<div class="container">
+  {% block content %}
+    <div class="main">
+    
+        {% for data in dataset %}.
+    
+        {{ data.nomDepart }}<br/>
+        {{ data.nbPers }}<br/>
+        <hr/>
+    
+        {% endfor %}
+    
+    </div>
+  {% endblock %}
+</div>
+</body>
+</html>
