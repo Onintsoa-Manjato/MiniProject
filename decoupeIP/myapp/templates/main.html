@@ -8,25 +8,11 @@
   {% bootstrap_javascript %}
 </head>
 <body>
-
 <div class="container">
   {% block content %}
-
-    <div class="main">
-      {% extends "master.html" %}
-      {% load static %}
-      {% block head %}
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-      
-          {% block title %}
-          My app - main
-          {% endblock %}
-      {% endblock %}
-      
-      {% block content %}
+    <div class="container p-5 my-5 bg-dark text-white">  
           <h1>Hello World!</h1>
           <p>Welcome to my Django IP address slicing!</p>
-      {% endblock %}
     </div>
   {% endblock %}
 </div>

@@ -10,17 +10,9 @@
 
 <div class="container">
   {% block content %}
-    <form method="POST" enctype="multipart/form-data">
-    
-        <!-- Security token -->
-        {% csrf_token %}
-    
-        <!-- Using the formset -->
-        {{ form.as_p }}
-        
-        <input type="submit" value="Submit">
-    </form>
-
+    <div class="main">
+        <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image">
+    </div>
   {% endblock %}
 </div>
 </body>

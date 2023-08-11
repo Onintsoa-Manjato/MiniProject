@@ -5,7 +5,7 @@ class DepartementAdmin(admin.ModelAdmin):
     list_display = ("id", "nomDepart", "nbPers")
 
 class SousReseauAdmin(admin.ModelAdmin):
-    list_display = ("addressIP", "masque")
+    list_display = ("id", "addressIP", "masque")
 
 admin.site.register(Departement, DepartementAdmin)
 admin.site.register(SousReseau, SousReseauAdmin)

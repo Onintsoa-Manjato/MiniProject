@@ -11,16 +11,18 @@
 
 <div class="container">
   {% block content %}
-    <div class="main">
+    <div class="container p-5 my-5 bg-dark text-white">
         {% for data in dataset %}
             <p>
             {% for key, val in data.items %}
                 <h4>{{ key }} : {{ val }}</h4>
             {% endfor %}
             </p>
-            <h4>----------------------------------</h4>
+            <!-- Grey -->
+            <div class="progress">
+                <div class="progress-bar bg-secondary" style="width:100%"></div>
+            </div>
         {% endfor %}
-
     </div>
   {% endblock %}
 </div>
