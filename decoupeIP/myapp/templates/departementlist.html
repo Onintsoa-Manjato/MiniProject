@@ -17,28 +17,24 @@
     <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)">Link</a>
+            <a class="nav-link" href="/departementlist">Departement</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)">Link</a>
+            <a class="nav-link" href="/sousreseau">Sous Réseau</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)">Link</a>
+            <a class="nav-link" href="/calculateur">Découpage address IP</a>
         </li>
         </ul>
-        <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
-        </form>
     </div>
         </div>
     </nav> 
 {% block content %}
-{% for data in dataset %}
-<ul class="list-group">
-    <li class="list-group-item">{{ data.nomDepart }} : {{ data.nbPers }}</li>
-</ul> 
-{% endfor %}
+<ul>
+    {% for data in dataset %}
+      <li><a href="/departement/{{ data.id }}">{{ data.nomDepart }} : {{ data.nbPers }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
 </body>
 </html>

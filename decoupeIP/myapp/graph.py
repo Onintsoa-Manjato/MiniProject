@@ -16,7 +16,7 @@ def get_graph():
                 x.append(val)
             if key == "Nombre de Machine Max":
                 y.append(val)
-    plt.bar(x, y)
+    plt.bar(x, y, color = "brown")
 
     # Save the figure to a BytesIO object
     buf = BytesIO()
