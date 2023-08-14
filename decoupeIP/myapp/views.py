@@ -41,11 +41,11 @@ def update_departement(request, id):
     context = {}
 
     obj = get_object_or_404(Departement, id = id)
-    form = DepartementForm(request.POST or None, instance=obj)
-    if form.is_valid():
-        form.save()
+    form1 = DepartementForm(request.POST or None, instance=obj)
+    if form1.is_valid():
+        form1.save()
         return HttpResponseRedirect("/departement/"+id)
-    context["form"] = form
+    context["form1"] = form1
     return render(request, "update_departement.html", context)
 
 def delete_departement(request, id):
@@ -63,37 +63,56 @@ def delete_departement(request, id):
 def sous_reseau(request):
     context = {}
 
-    form = sousReseauForm(request.POST or None)
-    if form.is_valid():
-        form.save()
+    form2 = sousReseauForm(request.POST or None)
+    if form2.is_valid():
+        form2.save()
         return HttpResponseRedirect("/calculateur/")
-    context['form'] = form
+    context['form2'] = form2
 
     return render(request, "sousreseau.html", context)
+
+def sousreseaulist(request):
+    context = {}
+
+    context["dataset2"] = SousReseau.objects.all()
+
+    return render(request, "sousreseaulist.html", context)
 
 def detail_sousreseau(request, id):
     context = {}
 
-    context["data"] = SousReseau.objects.get(id = id)
+    context["data1"] = SousReseau.objects.get(id = id)
 
     return render(request, "detail_sousreseau.html", context)
 
 def update_sousreseau(request, id):
     context = {}
 
-    obj = get_object_or_404(SousReseau, id = id)
-    form = sousReseauForm(request.POST or None, instance=obj)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/sousreseau/"+id)
-    context["form"] = form
+    obj1 = get_object_or_404(SousReseau, id = id)
+    form3 = sousReseauForm(request.POST or None, instance=obj1)
+    if form3.is_valid():
+        form3.save()
+        return HttpResponseRedirect("/sousreseaulist/")
+    context["form3"] = form3
     return render(request, "update_sousreseau.html", context)
+
+def delete_sousreseau(request, id):
+    context = {}
+
+    obj2 = get_object_or_404(SousReseau, id = id)
+
+    if request.method == "POST":
+        obj2.delete()
+
+        return HttpResponseRedirect("/sousreseaulist/")
+    
+    return render(request, "delete_sousreseau.html", context)
 
 def calculateur(request):
     context = {}
     listRes = calc()
     
-    context["dataset"] = listRes
+    context["dataset1"] = listRes
 
     return render(request, "calculateur.html", context)
 

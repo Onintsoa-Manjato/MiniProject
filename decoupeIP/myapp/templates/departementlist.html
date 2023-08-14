@@ -17,24 +17,43 @@
     <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
+            <a class="nav-link" href="/">Acceuil</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/departementlist">Departement</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/sousreseau">Sous Réseau</a>
+            <a class="nav-link" href="/sousreseaulist">Réseau</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage address IP</a>
+            <a class="nav-link" href="/calculateur">Découpage réseau</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/graph">Représeantation graphique</a>
         </li>
         </ul>
     </div>
         </div>
     </nav> 
-{% block content %}
-<ul>
-    {% for data in dataset %}
-      <li><a href="/departement/{{ data.id }}">{{ data.nomDepart }} : {{ data.nbPers }}</a></li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        {% block sidebar %}
+          <ul class="sidebar-nav">
+            <li><a href="/departement/">Ajouter nouveau</a></li>
+          </ul>
+        {% endblock %}
+      </div>
+        <div class="col-sm-10 ">
+            {% block content %}
+            <ul>
+                {% for x in dataset %}
+                  <li><a href="/departement/{{ x.id }}">{{ x.nomDepart }} : {{ x.nbPers }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+        </div>
+    </div>
+  </div>
 </body>
 </html>

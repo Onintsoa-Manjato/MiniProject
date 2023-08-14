@@ -16,32 +16,48 @@
     <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
+            <a class="nav-link" href="/">Acceuil</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/departementlist">Departement</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/sousreseau">Sous Réseau</a>
+            <a class="nav-link" href="/sousreseaulist">Réseau</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage address IP</a>
+            <a class="nav-link" href="/calculateur">Découpage réseau</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/graph">Représeantation graphique</a>
         </li>
         </ul>
     </div>
     </div>
 </nav> 
-<div class="container">
-  {% block content %}
-    <form method="POST" enctype="multipart/form-data">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        {% block sidebar %}
+          <ul class="sidebar-nav">
+            <li><a href="/departementlist">Liste des départements</a></li>
+          </ul>
+        {% endblock %}
+      </div>
+        <div class="col-sm-10 ">
+        {% block content %}
+        <form method="POST" enctype="multipart/form-data">
     
-        <!-- Security token -->
-        {% csrf_token %}
-    
-        <!-- Using the formset -->
-        {{ form.as_p }}
+            <!-- Security token -->
+            {% csrf_token %}
         
-        <input type="submit" value="Submit">
-    </form>
-
-  {% endblock %}
-</div>
+            <!-- Using the formset -->
+            {{ form.as_p }}
+            
+            <input type="submit" value="Ajouter">
+        </form>
+        {% endblock %}
+        </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,13 +42,10 @@
         <form method="POST">
             <!-- Security token by Django -->
             {% csrf_token %}
-    
-            <!-- form as paragraph -->
-            {{ form1.as_p }}
-    
-            <input type="submit" value="Modifier">
+            Voulez-vous vraiment supprimer cette departement ?
+            <input type="submit" value="Oui" />
+            <a href="/">Annuler </a>
         </form>
-    
     </div>
   {% endblock %}
 </div>

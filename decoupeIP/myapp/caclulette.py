@@ -30,7 +30,13 @@ def calc():
         elif (nbPers >= 2046) and (nbPers < 4094):
             prefixlenSR = '20'
         elif (nbPers >= 4094) and (nbPers < 8192):
-            prefixlenSR = '19'     
+            prefixlenSR = '19'
+        elif (nbPers >= 8192) and (nbPers < 16382):
+            prefixlenSR = '18'
+        elif (nbPers >= 16382) and (nbPers < 32766):
+            prefixlenSR = '17'
+        elif (nbPers >= 32766) and (nbPers < 65534):
+            prefixlenSR = '16'           
         network = ipaddress.ip_network(reseau+'/'+prefixlenSR, strict=False)
         ip = ipaddress.ip_address(reseau)
         res["Nom Sous Réseau"] = nomDepart

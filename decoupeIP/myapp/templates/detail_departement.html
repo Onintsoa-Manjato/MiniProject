@@ -17,29 +17,47 @@
     <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
+            <a class="nav-link" href="/">Acceuil</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/departementlist">Departement</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/sousreseau">Sous Réseau</a>
+            <a class="nav-link" href="/sousreseaulist">Réseau</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage address IP</a>
+            <a class="nav-link" href="/calculateur">Découpage réseau</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/graph">Représeantation graphique</a>
         </li>
         </ul>
     </div>
     </div>
 </nav> 
-<div class="container">
-  {% block content %}
-    <div class="main">
-        
-        <!-- Specify fields to be displayed -->
-        {{ data.nomDepart }}<br/>
-        {{ data.nbPers }}<br/>
-    
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        {% block sidebar %}
+          <ul class="sidebar-nav">
+            <li><a href="/departement/{{data.id}}/update/">Modifier</a></li>
+            <li><a href="/departement/{{data.id}}/delete/">Supprimer</a></li>
+            <li><a href="/departementlist/">Listes des départements</a></li>
+          </ul>
+        {% endblock %}
+      </div>
+        <div class="col-sm-10 ">
+          {% block content %}
+            <div class="main">
+                
+                <!-- Specify fields to be displayed -->
+                NOM DE DEPARTEMENT : {{ data.nomDepart }}<br/>
+                NOMBRE DES PERSONNES : {{ data.nbPers }}<br/>
+            
+            </div>
+          {% endblock %}
+        </div>
     </div>
-    <p>Revenir vers <a href="/departementlist/">Liste des départements</a></p>
-  {% endblock %}
-</div>
+  </div>
 </body>
 </html>

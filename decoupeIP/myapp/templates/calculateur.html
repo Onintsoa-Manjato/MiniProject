@@ -17,34 +17,44 @@
     <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
+            <a class="nav-link" href="/">Acceuil</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/departementlist">Departement</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/sousreseau">Sous Réseau</a>
+            <a class="nav-link" href="/sousreseaulist">Réseau</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage address IP</a>
+            <a class="nav-link" href="/calculateur">Découpage réseau</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/graph">Représeantation graphique</a>
         </li>
         </ul>
     </div>
     </div>
 </nav> 
-<div class="container">
-  {% block content %}
-    <div class="container p-5 my-5 bg-dark text-white">
-        {% for data in dataset %}
-            <p>
-            {% for key, val in data.items %}
-                <h4>{{ key }} : {{ val }}</h4>
-            {% endfor %}
-            </p>
-            <!-- Grey -->
-            <div class="progress">
-                <div class="progress-bar bg-secondary" style="width:100%"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-10 ">
+            {% block content %}
+            <div class="container p-5 my-5 bg-dark text-white">
+                {% for data in dataset1 %}
+                    <p>
+                    {% for key, val in data.items %}
+                        <h4>{{ key }} : {{ val }}</h4>
+                    {% endfor %}
+                    </p>
+                    <!-- Grey -->
+                    <div class="progress">
+                        <div class="progress-bar bg-secondary" style="width:100%"></div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+          {% endblock %}
+        </div>
     </div>
-  {% endblock %}
-</div>
+  </div>
 </body>
 </html>
