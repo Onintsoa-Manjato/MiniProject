@@ -1,60 +1,17 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Acceuil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/departementlist">Departement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sousreseaulist">Réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/graph">Représeantation graphique</a>
-        </li>
-        </ul>
-    </div>
-    </div>
-</nav> 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-10 ">
-            {% block content %}
-            <div class="container p-5 my-5 bg-dark text-white">
-                {% for data in dataset1 %}
-                    <p>
-                    {% for key, val in data.items %}
-                        <h4>{{ key }} : {{ val }}</h4>
-                    {% endfor %}
-                    </p>
-                    <!-- Grey -->
-                    <div class="progress">
-                        <div class="progress-bar bg-secondary" style="width:100%"></div>
-                    </div>
-                {% endfor %}
-            </div>
-          {% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="container p-5 my-5 border">
+    {% for data in dataset1 %}
+        <p>
+        {% for key, val in data.items %}
+            <h4>{{ key }} : {{ val }}</h4>
+        {% endfor %}
+        </p>
+        <!-- Grey -->
+        <div class="progress">
+            <div class="progress-bar bg-secondary" style="width:100%"></div>
         </div>
-    </div>
-  </div>
-</body>
-</html>
+    {% endfor %}
+</div>
+{% endblock %}

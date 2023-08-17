@@ -1,3 +1,4 @@
 pip install Django
 pip install django-bootstrap-v5
 pip install matplotlib
+pip install whitenoise

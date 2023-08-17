@@ -1,63 +1,25 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Acceuil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/departementlist">Departement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sousreseaulist">Réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/graph">Représeantation graphique</a>
-        </li>
-        </ul>
-    </div>
-    </div>
-</nav> 
+{% extends 'base.html' %}
+{% block content %}
 <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">
         {% block sidebar %}
-          <ul class="sidebar-nav">
-            <li><a href="/departement/{{data.id}}/update/">Modifier</a></li>
-            <li><a href="/departement/{{data.id}}/delete/">Supprimer</a></li>
-            <li><a href="/departementlist/">Listes des départements</a></li>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-success"><a href="/departement/{{data.id}}/update/" class="link-success text-decoration-none">Modifier</a></li>
+            <li class="list-group-item list-group-item-danger"><a href="/departement/{{data.id}}/delete/"class="link-danger text-decoration-none">Supprimer</a></li>
+            <li class="list-group-item list-group-item-primary"><a href="/departementlist/" class="link-primary text-decoration-none">Listes des départements</a></li>
           </ul>
         {% endblock %}
       </div>
         <div class="col-sm-10 ">
-          {% block content %}
-            <div class="main">
-                
-                <!-- Specify fields to be displayed -->
-                NOM DE DEPARTEMENT : {{ data.nomDepart }}<br/>
-                NOMBRE DES PERSONNES : {{ data.nbPers }}<br/>
-            
+            <div class="container-sm">
+                <ul class="list-group">
+                  <!-- Specify fields to be displayed -->
+                    <li class="list-group-item list-group-item-info">NOM DE DEPARTEMENT : {{ data.nomDepart }}</br>
+                      NOMBRE DES PERSONNES : {{ data.nbPers }}</li>
+              </ul>
             </div>
-          {% endblock %}
         </div>
     </div>
-  </div>
-</body>
-</html>
+</div>
+{% endblock %}

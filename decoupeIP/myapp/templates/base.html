@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">IP Address Slicing</p></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Acceuil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/departementlist">Departement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sousreseaulist">Réseau</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/calculateur">Découpage réseau</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/graph">Représeantation graphique</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav> 
+<div class="container-fluid p-5 my-5">
+    {% block content %}
+    {% endblock %}
+    <div class="position-fixed" style="right: 0px; bottom: 0px"><p class="text-sm-end">&copy; Onintsoa Manjato 2023</p></div>
+</div>
+</body>
+</html>

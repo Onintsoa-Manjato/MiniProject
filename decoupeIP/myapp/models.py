@@ -5,7 +5,7 @@ class Departement(models.Model):
     nomDepart = models.CharField(max_length=30)
     nbPers = models.IntegerField()
     def __str__(self):
-        return self.nomDepart
+        return f"{self.nomDepart}"
 
 class SousReseau(models.Model):
     addressIP = models.CharField(max_length=25)

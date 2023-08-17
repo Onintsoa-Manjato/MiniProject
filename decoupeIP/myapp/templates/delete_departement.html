@@ -1,53 +1,16 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Acceuil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/departementlist">Departement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sousreseaulist/">Réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/graph">Représeantation graphique</a>
-        </li>
-        </ul>
-    </div>
-    </div>
-</nav> 
-<div class="container">
-  {% block content %}
-    <div class="main">
-        <!-- Create a Form -->
-        <form method="POST">
-            <!-- Security token by Django -->
-            {% csrf_token %}
-            Voulez-vous vraiment supprimer cette departement ?
-            <input type="submit" value="Oui" />
-            <a href="/">Annuler </a>
-        </form>
-    </div>
-  {% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+        
+        <div class="alert alert-danger alert-dismissible fade show">
+            <strong>Voulez-vous vraiment supprimer cette departement ?</strong>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Oui" />
+        <a href="/" class="link-primary">Annuler </a>
+    </form>
 </div>
-</body>
-</html>
+{% endblock %}

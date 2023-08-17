@@ -1,62 +1,24 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Acceuil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/departementlist">Departement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sousreseaulist">Réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/graph">Représeantation graphique</a>
-        </li>
-        </ul>
-    </div>
-        </div>
-    </nav> 
+{% extends 'base.html' %}
+{% block content %}
 <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">
         {% block sidebar %}
-          <ul class="sidebar-nav">
+          <ul class="list-group">
             {% for x in dataset2 %}
-                <li><a href="/sousreseau/{{ x.id }}/update">Modifier</a></li>
+                <li class="list-group-item list-group-item-success"><a href="/sousreseau/{{ x.id }}/update" class="link-success text-decoration-none">Modifier</a></li>
             {% endfor %}
           </ul>
         {% endblock %}
       </div>
         <div class="col-sm-10 ">
-            {% block content %}
-            <ul>
+            <ul class="list-group">
                 {% for x in dataset2 %}
-                  <li>ADDRESS RESEAU : {{ x.addressIP }}</br>
+                  <li class="list-group-item list-group-item-info">ADDRESS RESEAU : {{ x.addressIP }}</br>
                     MASQUE : {{ x.masque }}</li>
                 {% endfor %}
             </ul>
-            {% endblock %}
         </div>
     </div>
-  </div>
-</body>
-</html>
+</div>
+{% endblock %}

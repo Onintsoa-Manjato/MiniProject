@@ -1,45 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="/">Acceuil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/departementlist">Departement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/sousreseaulist">Réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/calculateur">Découpage réseau</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/graph">Représeantation graphique</a>
-        </li>
-        </ul>
-    </div>
-    </div>
-</nav> 
-<div class="container">
-  {% block content %}
-    <div class="main">
-        <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image">
-    </div>
-  {% endblock %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="main">
+    <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image">
 </div>
-</body>
-</html>
+{% endblock %}
