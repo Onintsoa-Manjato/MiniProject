@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2">
-        {% block sidebar %}
-          <ul class="list-group">
-            <li class="list-group-item list-group-item-success"><a href="/departement/{{data.id}}/update/" class="link-success text-decoration-none">Modifier</a></li>
-            <li class="list-group-item list-group-item-danger"><a href="/departement/{{data.id}}/delete/"class="link-danger text-decoration-none">Supprimer</a></li>
-            <li class="list-group-item list-group-item-primary"><a href="/departementlist/" class="link-primary text-decoration-none">Listes des départements</a></li>
-          </ul>
-        {% endblock %}
-      </div>
-        <div class="col-sm-10 ">
-            <div class="container-sm">
-                <ul class="list-group">
-                  <!-- Specify fields to be displayed -->
-                    <li class="list-group-item list-group-item-info">NOM DE DEPARTEMENT : {{ data.nomDepart }}</br>
-                      NOMBRE DES PERSONNES : {{ data.nbPers }}</li>
-              </ul>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-sm-2">
+      {% block sidebar %}
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-success"><a href="/departement/{{data.id}}/update/" class="link-success text-decoration-none">Modifier</a></li>
+          <li class="list-group-item list-group-item-danger"><a href="/departement/{{data.id}}/delete/"class="link-danger text-decoration-none">Supprimer</a></li>
+          <li class="list-group-item list-group-item-primary"><a href="/departementlist/" class="link-primary text-decoration-none">Listes des départements</a></li>
+        </ul>
+      {% endblock %}
     </div>
+      <div class="col-sm-10 ">
+          <div class="container-sm">
+              <ul class="list-group">
+                <!-- Specify fields to be displayed -->
+                  <li class="list-group-item list-group-item-info">NOM DE DEPARTEMENT : {{ data.nomDepart }}</br>
+                    NOMBRE DES PERSONNES : {{ data.nbPers }}</li>
+            </ul>
+          </div>
+      </div>
+  </div>
 </div>
 {% endblock %}
