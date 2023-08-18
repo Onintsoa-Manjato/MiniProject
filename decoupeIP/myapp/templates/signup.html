@@ -1,20 +1,24 @@
 {% extends 'base1.html' %}
 {% block content %}
-  <div class="container mt-5">
-    <h2>Sign up</h2>
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
-        {% for field in form4 %}
-          <p>
-            {{ field.label_tag }}<br>
-            {{ field }}
-            {% for error in field.errors %}
-              <p style="color: red">{{ error }}
-            {% endfor %}
-            </p>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary">Create an account</button>
-    </form>
+  <div class="container-fluid d-flex flex-column align-content-center">
+    <div class="container">
+      <h2>Sign up</h2>
+    </div>
+    <div class="container">
+      <form method="POST">
+          <!-- Security token by Django -->
+          {% csrf_token %}
+          {% for field in form4 %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}
+              {% endfor %}
+              </p>
+          {% endfor %}
+          <button type="submit" class="btn btn-primary">Create an account</button>
+      </form>
+    </div>
   </div>
 {% endblock %}

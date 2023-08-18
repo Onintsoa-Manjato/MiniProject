@@ -10,10 +10,12 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
-<body style="background-color:#777b80;">
+<body style="background-image: url({% static "myapp/img/background.png" %}); background-repeat: no-repeat; background-size: cover" rel="stylesheet" media="screen">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">IP Address Slicing</p></a>
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'myapp/img/logo1.png' %}" alt="IP Address Slicing" style="width:40px;" class="rounded-circle"> 
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
               <span class="navbar-toggler-icon"></span>
             </button>

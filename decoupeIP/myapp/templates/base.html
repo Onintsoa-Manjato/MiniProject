@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
     {% load static %}
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -13,7 +12,9 @@
 <body style="background-color:#777b80;">
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">IP Address Slicing</p></a>
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'myapp/img/logo1.png' %}" alt="IP Address Slicing" style="width:40px;" class="rounded-circle"> 
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>

@@ -16,6 +16,12 @@ def get_graph():
                 x.append(val)
             if key == "Nombre de Machine Max":
                 y.append(val)
+        plt.rcParams['axes.facecolor'] = '#777b80'
+    fig = plt.figure()
+    fig.patch.set_facecolor('#777b80')
+    plt.title("Nombre de machine max par département")
+    plt.xlabel("Departement")
+    plt.ylabel("Nombre de machine max")
     plt.bar(x, y, color = "brown")
 
     # Save the figure to a BytesIO object
