@@ -2,18 +2,18 @@
 {% block content %}
   <div class="container-fluid d-flex flex-column align-content-center">
     <div class="container">
-      <h3 class="card-title">Log in</h3>
+      <h3 class="card-title">Se connecter</h3>
     </div>
     <div class="container">
       <form method="POST" novalidate>
           <!-- Security token by Django -->
           {% csrf_token %}
           {{ form5.as_p }}
-          <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
       </form>
     </div>
     <div class="container">
-      Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+      Vous n'avez pas de compte? <a href="{% url 'signup' %}">S'inscrire</a>
     </div>
   </div>
 {% endblock %}

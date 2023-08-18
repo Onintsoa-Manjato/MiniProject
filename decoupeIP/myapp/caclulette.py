@@ -1,14 +1,21 @@
 from .models import SousReseau, Departement
 import ipaddress
 
+#fonction pour découper le réseau en sous réseau par département
 def calc():
+    #récupèration adress IP et nombre de département
     reseau = list(SousReseau.objects.values_list('addressIP').first())[0]
     nbDepart = len(Departement.objects.all())
+    #Initialisation d'un liste pour stocker les résultats
     listRes = []
     for i in range(nbDepart):
+        #Initialisation des résultats(Nom de sous réseau, nombre de PC, adresse réseau, masque de sous réseau,
+        # passerelle, broadcast, inverse de masque de sous réseau et nombre de machine maximale)
         res = {}
+        #récupèration nom de departement et nombre des personnes dans le département
         nomDepart = list(list(Departement.objects.values_list('nomDepart'))[i])[0]
         nbPers = list(list(Departement.objects.values_list('nbPers'))[i])[0]
+        #condition pour avoir un masque sous réseau proportionnel aux nombre des personnes dans le département
         if nbPers < 6 :
             prefixlenSR = '29'
         elif (nbPers >= 6) and (nbPers < 14):
@@ -36,7 +43,9 @@ def calc():
         elif (nbPers >= 16382) and (nbPers < 32766):
             prefixlenSR = '17'
         elif (nbPers >= 32766) and (nbPers < 65534):
-            prefixlenSR = '16'           
+            prefixlenSR = '16'   
+        #On utilise le module ipaddress pour récuperer l'adresse réseau, le masque, l'inverse masque réseau
+        # et les nombres des machines max dans le sous réseau        
         network = ipaddress.ip_network(reseau+'/'+prefixlenSR, strict=False)
         ip = ipaddress.ip_address(reseau)
         res["Nom Sous Réseau"] = nomDepart

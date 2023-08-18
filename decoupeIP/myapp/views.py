@@ -8,7 +8,7 @@ from .caclulette import calc
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-
+#Création de nouveau utilisateur
 def signup(request):
     context = {}
     if request.method == 'POST':
@@ -22,6 +22,7 @@ def signup(request):
     context["form4"] = form4
     return render(request, 'signup.html', context)
 
+#Connexion
 def log_in(request):
     context = {}
     if request.method == "POST":
@@ -35,46 +36,44 @@ def log_in(request):
     context["form5"] = form5
     return render(request,'login.html', context)
 
+#Deconnection
 def log_out(request):
     logout(request)
     return redirect('login')
 
+#Ajout d'un nouveau departement
 def departement(request):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     form = DepartementForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('departementlist')
     context['form'] = form
-
     return render(request, "departement.html", context)
 
+#afficher liste des départements
 def departementlist(request):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     context["dataset"] = Departement.objects.all()
-
     return render(request, "departementlist.html", context)
 
+#afficher détail de département
 def detail_departement(request, id):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     context["data"] = Departement.objects.get(id = id)
-
     return render(request, "detail_departement.html", context)
 
+#Modifier nom ou nombre de personne dans département
 def update_departement(request, id):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     obj = get_object_or_404(Departement, id = id)
     form1 = DepartementForm(request.POST or None, instance=obj)
     if form1.is_valid():
@@ -83,56 +82,30 @@ def update_departement(request, id):
     context["form1"] = form1
     return render(request, "update_departement.html", context)
 
+#supprimer un département
 def delete_departement(request, id):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     obj = get_object_or_404(Departement, id = id)
-
     if request.method == "POST":
         obj.delete()
-
         return HttpResponseRedirect("/departementlist/")
-    
     return render(request, "delete_departement.html", context)
 
-def sous_reseau(request):
-    if not request.user.is_authenticated:
-        return log_in(request)
-    context = {}
-
-    form2 = sousReseauForm(request.POST or None)
-    if form2.is_valid():
-        form2.save()
-        return HttpResponseRedirect("/calculateur/")
-    context['form2'] = form2
-
-    return render(request, "sousreseau.html", context)
-
+#afficher le sous réseau
 def sousreseaulist(request):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     context["dataset2"] = SousReseau.objects.all()
-
     return render(request, "sousreseaulist.html", context)
 
-def detail_sousreseau(request, id):
-    if not request.user.is_authenticated:
-        return log_in(request)
-    context = {}
-
-    context["data1"] = SousReseau.objects.get(id = id)
-
-    return render(request, "detail_sousreseau.html", context)
-
+#modifier sous réseau
 def update_sousreseau(request, id):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-
     obj1 = get_object_or_404(SousReseau, id = id)
     form3 = sousReseauForm(request.POST or None, instance=obj1)
     if form3.is_valid():
@@ -141,35 +114,18 @@ def update_sousreseau(request, id):
     context["form3"] = form3
     return render(request, "update_sousreseau.html", context)
 
-def delete_sousreseau(request, id):
-    if not request.user.is_authenticated:
-        return log_in(request)
-    context = {}
-
-    obj2 = get_object_or_404(SousReseau, id = id)
-
-    if request.method == "POST":
-        obj2.delete()
-
-        return HttpResponseRedirect("/sousreseaulist/")
-    
-    return render(request, "delete_sousreseau.html", context)
-
+#Découpage sous réseau par département
 def calculateur(request):
     if not request.user.is_authenticated:
         return log_in(request)
     context = {}
-    listRes = calc()
-    
+    listRes = calc()   
     context["dataset1"] = listRes
-
     return render(request, "calculateur.html", context)
 
+#représentation graphique de nombre de machine max par département
 def graph_view(request):
     if not request.user.is_authenticated:
         return log_in(request)
-    # Get the graph
     graph = get_graph()
-
-    # Render the graph to the template
     return render(request, 'graph.html', {'graph': graph})

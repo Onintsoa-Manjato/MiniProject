@@ -44,7 +44,7 @@
                           <a class="nav-item nav-link mr-md-2" href="#" id="userMenu">{{user.username}}</a>
                       </li>
                       <li class="nav-item">
-                            <a class="btn btn-primary ml-auto" href="{% url 'logout'%}">Log out<span class="sr-only"></span></a>
+                            <a class="btn btn-primary ml-auto" href="{% url 'logout'%}">Se déconnecter<span class="sr-only"></span></a>
                       </li>
                     </li>
                 </ul>
@@ -54,8 +54,8 @@
             <span class="navbar-toggler-icon"></span> 
             </button>
             <form class="form-inline ms-auto" >
-                <a href="{% url 'login'%}" class="btn btn-secondary" color="white">Log in</a>
-                <a href="{% url 'signup'%}" class = "btn btn-primary ml-3">Sign up</a>
+                <a href="{% url 'login'%}" class="btn btn-secondary" color="white">Se connecter</a>
+                <a href="{% url 'signup'%}" class = "btn btn-primary ml-3">S'inscrire</a>
             </form>
             {% endif %}
         </div>

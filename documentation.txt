@@ -1,0 +1,15 @@
+1. créer un compte(si vous n'avez pas encore de compte)
+2. se connecter avec votre login et votre mot de passe 
+3. dans l'onglet département, on trouve tous les départements ainsi que les nombres de personnes dans le département
+4. un simple click sur ajouter nouveau pour ajouter un nouveau département, on saisie son nom puis 
+le nombre des personnes, enfin ajouter
+5. Si on veut modifier le nom ou le nombre de département, on click sur le nom de département,
+puis on click sur le bouton modifier en vert, faire le modification, enfin modifier
+6. Si on veut supprimer le département, on click sur le nom de département,
+puis on click sur le bouton supprimer en rouge, enfin choisir entre oui pour supprimer ou annuler
+7. dans l'onglet réseau, on modifie l'address réseau et son masque
+8. si tout est juste, on peut voir les résultats de découpage de l'addresse en sous réseau par 
+département dans l'onglet découpage réseau.
+9. Et dans l'onglet représentation graphique, la représentation graphique des résultats
+(nombre de machine maximale par départements)
+10. se déconnecter avec le bouton à droite dans la barre de navigation
