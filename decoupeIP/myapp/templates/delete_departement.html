@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
+{% block title %}Suppression de département{% endblock %}
 {% block content %}
 <div class="main">
-    <!-- Create a Form -->
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
-        
-        <div class="alert alert-danger alert-dismissible fade show">
-            <strong>Voulez-vous vraiment supprimer cette departement ?</strong>
-        </div>
-        <input type="submit" class="btn btn-danger" value="Oui" />
-        <a href="/departementlist" class="link-primary">Annuler </a>
-    </form>
+    <div class="card-header">
+        <h1 class="text-center" style="font-family: cursive; color: rgb(118, 155, 118);">Suppression de département</h1>
+    </div>
+    <div class="card-body">
+        <!-- Create a Form -->
+        <form method="POST">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            
+            <div class="d-inline-block">
+                <h4>Voulez-vous vraiment supprimer ce département ?</h4>
+            </div>
+            <div class="d-inline-block">
+                <a href="/departementlist" class="btn btn-lg btn-secondary"> Annuler</a>
+            </div>
+            <div class="d-inline-block">            	
+                <input type="submit" class="btn btn-lg btn-danger" value="Confirmer">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
+{% block title %}Graph{% endblock %}
 {% block content %}
-<div class="container-fluid d-flex align-items-center justify-content-center">
-    <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image" style="height: 80% ; width: 60%;">
+<div class="container-fluid">
+    <div class="card-header">
+        <h1 class="text-center" style="font-family: cursive; color: rgb(118, 155, 118);">Représentation des machines maximale par départements</h1>
+    </div>
+    <div class="container-fluid d-flex align-items-center justify-content-center">
+        <img src="data:image/png;base64,{{ graph }}" alt="Matplotlib Graph" class="blog-image" style="height: 70% ; width: 50%;">
+    </div>
 </div>
 {% endblock %}

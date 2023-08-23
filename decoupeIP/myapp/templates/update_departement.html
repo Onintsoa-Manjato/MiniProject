@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
+{% block title %}Modification de département{% endblock %}
 {% block content %}
-<div class="container-fluid d-flex justify-content-center">
-    <div class="row my-5">
-        <div class="col-md-12">
-            <!-- Create a Form -->
-            <form method="POST" class="form">
-                <!-- Security token by Django -->
-                {% csrf_token %}
-
-                <!-- form as paragraph -->
-                {{ form1.as_p }}
-
-                <input type="submit" class="btn btn-success" value="Modifier">
-            </form>
-        </div>
+<div class="container-fluid">
+    <div class="card-header">
+        <h1 class="text-center" style="font-family: cursive; color: rgb(118, 155, 118);">Modification de département</h1>
     </div>
+    <section class="gradient-custom">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card text-white" style="border-radius: 1rem;background-color: teal;">
+                        <div class="card-body p-5 text-center">
+                            <div class="row my-5">
+                                <div class="col-md-12">
+                                    <!-- Create a Form -->
+                                    <form method="POST" class="form">
+                                        <!-- Security token by Django -->
+                                        {% csrf_token %}
+                                        <table>
+                                            <!-- Using the formset -->
+                                            {{ form1.as_table }}
+                                        </table>
+
+                                        <input type="submit" class="btn btn-success" value="Modifier">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}

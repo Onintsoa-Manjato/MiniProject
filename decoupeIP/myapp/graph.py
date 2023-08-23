@@ -22,21 +22,17 @@ def get_graph():
             #on récupère seulement les valeurs de nombre de machine maximale pour y
             if key == "Nombre de Machine Max":
                 y.append(val)
-    #couleur de la background de la figure
-    plt.rcParams['axes.facecolor'] = '#777b80'
-    fig = plt.figure()
-    fig.patch.set_facecolor('#777b80')
     #titre de la figure
     plt.title("Nombre de machine max par département")
     #titre de l'axe horizontale et verticale de la figure
     plt.xlabel("Departement")
     plt.ylabel("Nombre de machine max")
     #fonction bar() pour dessiner les bar graph de couleur brouwn
-    plt.bar(x, y, color = "brown")
+    plt.bar(x, y, color = "teal")
 
     #sauvegarde de la graph
     buf = BytesIO()
-    plt.savefig(buf, format='png')
+    plt.savefig(buf, format='png', transparent=True)
     buf.seek(0)
     string = base64.b64encode(buf.read())
 

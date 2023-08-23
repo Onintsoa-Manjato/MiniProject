@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
+{% block title %}Réseau{% endblock %}
 {% block content %}
 <div class="container-fluid">
+  <div class="card-header">
+    <h1 class="text-center" style="font-family: cursive; color: rgb(118, 155, 118);">Réseau local</h1>
+  </div>
   <div class="row">
     <div class="col-sm-2">
-      {% block sidebar %}
-        <ul class="list-group border">
-          {% for x in dataset2 %}
-              <li class="list-group-item list-group-item-success"><a href="/sousreseau/{{ x.id }}/update" class="link-success text-decoration-none">Modifier</a></li>
-          {% endfor %}
-        </ul>
-      {% endblock %}
+      {% for x in dataset2 %}
+      <a class="btn btn-primary" href="/sousreseau/{{ x.id }}/update" role="button">Modifier</a>
+      {% endfor %}
     </div>
       <div class="col-sm-10 ">
           <ul class="list-group">
               {% for x in dataset2 %}
-                <li class="list-group-item list-group-item-info border-5">ADDRESSE RESEAU : {{ x.addressIP }}</br>
+                <li class="list-group-item bg-transparent border-5">ADDRESSE RESEAU : {{ x.addressIP }}</br>
                   MASQUE : {{ x.masque }}</li>
               {% endfor %}
           </ul>

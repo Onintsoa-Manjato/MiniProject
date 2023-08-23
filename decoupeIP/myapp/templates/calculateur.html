@@ -1,7 +1,11 @@
 
 {% extends 'base.html' %}
+{% block title %}Liste des sous réseau par département{% endblock %}
 {% block content %}
 <div class="container p-5 my-5 border">
+    <div class="card-header">
+        <h1 class="text-center" style="font-family: cursive; color: rgb(118, 155, 118);">Liste des sous-réseaux par département</h1>
+    </div>
     {% for data in dataset1 %}
         <p>
         {% for key, val in data.items %}

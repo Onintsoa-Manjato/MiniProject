@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
-<title>Mauvaise Addresse</title>
-<body>
-
-<h1>Ouuups!</h1>
-
-<h2>URL introuvable!</h2>
-
-</body>
-</html> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Mauvaise Addresse{% endblock %}</title>
+        {% load static %}
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <div class="container-fluid p-5 my-5 text-center text-warning">
+            <h1>Ouuups!</h1>
+            <h2>URL introuvable!</h2>
+        </div>
+    </body>
+    <style>
+        body{
+            background : url('{% static 'myapp/img/background.jpg' %}') no-repeat center center fixed;
+        }
+    </style>
+</html>
